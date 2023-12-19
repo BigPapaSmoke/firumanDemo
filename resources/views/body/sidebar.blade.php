@@ -53,7 +53,7 @@
                     </a>
                 </li>
 
-                <li class="menu-title mt-2">Apps</li>
+                <li class="menu-title mt-2">Employee Management</li>
 
                 <li>
                     <a href="#sidebarEcommerce" data-bs-toggle="collapse">
@@ -75,7 +75,6 @@
                 </li>
 
                 {{-- Employee Salary --}}
-
                 <li>
                     <a href="#salary" data-bs-toggle="collapse">
                         <i class="mdi mdi-email-multiple-outline"></i>
@@ -89,6 +88,14 @@
                             </li>
                             <li>
                                 <a href="{{ route('all.advance.salary') }}">All Advance Salary</a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('pay.salary') }}">Pay Salary</a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('month.salary') }}">Last Month Salary</a>
                             </li>
 
                         </ul>

@@ -81,3 +81,11 @@ Route::controller(SalaryController::class)->group(function () {
     Route::post('/advance/salary/update', 'AdvanceSalaryUpdate')->name('advance.salary.update');
     Route::get('/delete/advance/salary/{id}', 'DeleteAdvanceSalary')->name('delete.advance.salary');
 });
+
+/// Pay Salary All Route
+Route::controller(SalaryController::class)->group(function () {
+    Route::get('/pay/salary', 'PaySalary')->name('pay.salary');
+    Route::get('/pay/now/salary/{id}', 'PayNowSalary')->name('pay.now.salary');
+    Route::post('/employe/salary/store', 'EmployeSalaryStore')->name('employe.salary.store');
+    Route::get('/month/salary', 'MonthSalary')->name('month.salary');
+});

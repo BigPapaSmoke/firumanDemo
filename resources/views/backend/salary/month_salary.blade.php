@@ -11,7 +11,7 @@
                                     class="btn btn-primary rounded-pill waves-effect waves-light">Add Advance Salary </a>
                             </ol>
                         </div>
-                        <h4 class="page-title">All Advance Salary</h4>
+                        <h4 class="page-title">Last Month Salary</h4>
                     </div>
                 </div>
             </div>
@@ -27,35 +27,23 @@
                                         <th>Name</th>
                                         <th>Month</th>
                                         <th>Salary</th>
-                                        <th>Advance</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($salary as $key => $item)
+                                    @foreach ($paidsalary as $key => $item)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td>
-                                                <img src="{{ $item->employee_image }}" style="width: 50px; height: 40px;">
-                                            </td>
-                                            <td>{{ $item['employee']['name'] ?? 'N/A' }}</td>
-                                            <td>{{ $item->month }}</td>
-                                            <td>{{ $item['employee']['salary'] ?? 'N/A' }}</td>
-                                            <td>
-
-                                                @if ($item->advance_salary == null)
-                                                    <p>No Advance</p>
-                                                @else
-                                                    {{ $item->advance_salary }}
-                                                @endif
-
-                                            </td>
+                                            <td> <img src="{{ asset($item->employee->image) }}"
+                                                    style="width:50px; height: 40px;"> </td>
+                                            <td>{{ $item['employee']['name'] }}</td>
+                                            <td>{{ $item->salary_month }}</td>
+                                            <td>{{ $item['employee']['salary'] }}</td>
+                                            <td><span class="badge bg-success"> Full Paid </span> </td>
                                             <td>
                                                 <a href="{{ route('edit.advance.salary', $item->id) }}"
-                                                    class="btn btn-blue rounded-pill waves-effect waves-light">Edit</a>
-                                                <a href="{{ route('delete.advance.salary', $item->id) }}"
-                                                    class="btn btn-danger rounded-pill waves-effect waves-light"
-                                                    id="delete">Delete</a>
+                                                    class="btn btn-blue rounded-pill waves-effect waves-light">History</a>
                                             </td>
                                         </tr>
                                     @endforeach
