@@ -58,7 +58,7 @@
                 <li>
                     <a href="#sidebarEcommerce" data-bs-toggle="collapse">
                         <i class="mdi mdi-cart-outline"></i>
-                        <span> Employee Manage </span>
+                        <span> Employees </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarEcommerce">
@@ -101,6 +101,25 @@
                         </ul>
                     </div>
                 </li>
+
+
+                <li>
+                    <a href="#attendence" data-bs-toggle="collapse">
+                        <i class="mdi mdi-email-multiple-outline"></i>
+                        <span> Employee Attendence </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="attendence">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('employee.attend.list') }}">Employee Attend List </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="menu-title mt-2">Business Management</li>
 
                 <li>
                     <a href="#sidebarCrm" data-bs-toggle="collapse">
