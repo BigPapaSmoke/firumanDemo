@@ -158,6 +158,23 @@
                         </ul>
                     </div>
                 </li>
+                {{-- Categories --}}
+                <li>
+                    <a href="#category" data-bs-toggle="collapse">
+                        <i class="mdi mdi-email-multiple-outline"></i>
+                        <span> Category Manage </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="category">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.category') }}">All Category</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </li>
 
 
 
