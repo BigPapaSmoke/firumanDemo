@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\SupplierController;
 use App\Http\Controllers\Backend\SalaryController;
 use App\Http\Controllers\Backend\AttendenceController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ProductController;
 
 
 Route::get('/', function () {
@@ -29,13 +30,11 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::get('/admin/logout', [AdminController::class, 'AdminDestroy'])->name('admin.logout');
-
 Route::get('/logout', [AdminController::class, 'AdminLogoutPage'])->name('admin.logout.page');
 
 
 
 Route::middleware(['auth'])->group(function () {
-
     Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
     Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
     Route::get('/change/password', [AdminController::class, 'ChangePassword'])->name('change.password');
@@ -109,4 +108,14 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('/edit/category/{id}', 'EditCategory')->name('edit.category');
     Route::post('/update/category', 'UpdateCategory')->name('category.update');
     Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
+});
+
+///Product All Route
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/all/product', 'AllProduct')->name('all.product');
+    Route::get('/add/product', 'AddProduct')->name('add.product');
+    Route::post('/store/product', 'StoreProduct')->name('product.store');
+    Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
+    Route::post('/update/product', 'UdateProduct')->name('product.update');
+    Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
 });

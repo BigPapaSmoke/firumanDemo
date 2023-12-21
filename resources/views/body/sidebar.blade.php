@@ -57,7 +57,7 @@
 
                 <li>
                     <a href="#sidebarEcommerce" data-bs-toggle="collapse">
-                        <i class="mdi mdi-cart-outline"></i>
+                        <i class="bi bi-person-badge-fill"></i>
                         <span> Employees </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -77,7 +77,7 @@
                 {{-- Employee Salary --}}
                 <li>
                     <a href="#salary" data-bs-toggle="collapse">
-                        <i class="mdi mdi-email-multiple-outline"></i>
+                        <i class="mdi mdi-cash"></i>
                         <span> Employee Salary </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -105,7 +105,7 @@
 
                 <li>
                     <a href="#attendence" data-bs-toggle="collapse">
-                        <i class="mdi mdi-email-multiple-outline"></i>
+                        <i class="bi bi-envelope"></i>
                         <span> Employee Attendence </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -142,7 +142,7 @@
                 </li>
                 <li>
                     <a href="#sidebarEmail" data-bs-toggle="collapse">
-                        <i class="mdi mdi-email-multiple-outline"></i>
+                        <i class="bi bi-truck"></i>
                         <span> Supplier Manage </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -161,7 +161,7 @@
                 {{-- Categories --}}
                 <li>
                     <a href="#category" data-bs-toggle="collapse">
-                        <i class="mdi mdi-email-multiple-outline"></i>
+                        <i class="bi bi-tag"></i>
                         <span> Category Manage </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -170,7 +170,26 @@
                             <li>
                                 <a href="{{ route('all.category') }}">All Category</a>
                             </li>
+                        </ul>
+                    </div>
+                </li>
 
+                {{-- Products --}}
+                <li>
+                    <a href="#product" data-bs-toggle="collapse">
+                        <i class="bi bi-box-seam"></i>
+                        <span> Products </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="product">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.product') }}">All Product </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('add.product') }}">Add Product </a>
+                            </li>
 
                         </ul>
                     </div>
