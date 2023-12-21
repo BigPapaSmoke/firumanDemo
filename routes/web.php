@@ -10,6 +10,8 @@ use App\Http\Controllers\Backend\SalaryController;
 use App\Http\Controllers\Backend\AttendenceController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ExpenseController;
+use App\Http\Controllers\Backend\PosController;
 
 
 Route::get('/', function () {
@@ -118,4 +120,24 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
     Route::post('/update/product', 'UdateProduct')->name('product.update');
     Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
+    Route::get('/barcode/product/{id}', 'BarcodeProduct')->name('barcode.product');
+    Route::get('/import/product', 'ImportProduct')->name('import.product');
+    Route::get('/export', 'Export')->name('export');
+    Route::get('/import', 'Import')->name('import');
+});
+
+///Category All Route
+Route::controller(ExpenseController::class)->group(function () {
+    Route::get('/add/expense', 'AddExpense')->name('add.expense');
+    Route::post('/store/expense', 'StoreExpense')->name('expense.store');
+    Route::get('/today/expense', 'TodayExpense')->name('today.expense');
+    Route::get('/edit/expense/{id}', 'EditExpense')->name('edit.expense');
+    Route::post('/update/expense', 'UpdateExpense')->name('expense.update');
+    Route::get('/month/expense', 'MonthExpense')->name('month.expense');
+    Route::get('/year/expense', 'YearExpense')->name('year.expense');
+});
+
+///POS All Route
+Route::controller(PosController::class)->group(function () {
+    Route::get('/pos', 'Pos')->name('pos');
 });

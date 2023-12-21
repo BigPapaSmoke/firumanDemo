@@ -53,6 +53,14 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="{{ route('pos') }}">
+                        <span class="badge bg-pink float-end">Hot</span>
+                        <i class="mdi mdi-view-dashboard-outline"></i>
+                        <span> POS </span>
+                    </a>
+                </li>
+
                 <li class="menu-title mt-2">Employee Management</li>
 
                 <li>
@@ -191,6 +199,36 @@
                                 <a href="{{ route('add.product') }}">Add Product </a>
                             </li>
 
+                            <li>
+                                <a href="{{ route('import.product') }}">Export Product </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                {{-- Expenses --}}
+                <li>
+                    <a href="#sidebarAuth" data-bs-toggle="collapse">
+                        <i class="mdi mdi-account-circle-outline"></i>
+                        <span>Expense </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarAuth">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('add.expense') }}">Add Expense</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('today.expense') }}">Today Expense</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('month.expense') }}">Monthly Expense</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('year.expense') }}">Yearly Expense</a>
+                            </li>
+
                         </ul>
                     </div>
                 </li>
@@ -208,7 +246,6 @@
 </ul>
 
 </div>
-<!-- End Sidebar -->
 
 <div class="clearfix"></div>
 

@@ -160,6 +160,7 @@ return [
          * Package Service Providers...
          */
         'Intervention\Image\ImageServiceProvider',
+        Maatwebsite\Excel\ExcelServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -183,6 +184,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Image' => 'Intervention\Image\Facades\Image',
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 

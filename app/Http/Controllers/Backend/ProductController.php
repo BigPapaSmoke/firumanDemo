@@ -9,12 +9,15 @@ use App\Models\Category;
 use App\Models\Supplier;
 use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
+use App\Exports\ProductExport;
+use App\Imports\ProductImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
     public function AllProduct()
     {
-
         $product = Product::latest()->get();
         return view('backend.product.all_product', compact('product'));
     }
@@ -30,6 +33,8 @@ class ProductController extends Controller
 
     public function StoreProduct(Request $request)
     {
+        $pcode = IdGenerator::generate(['table' => 'products', 'field' => 'product_code', 'length' => 8, 'prefix' => 'PC']);
+
         $image = $request->file('product_image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(300, 300)->save('upload/product/' . $name_gen);
@@ -41,7 +46,7 @@ class ProductController extends Controller
             'category_id' => $request->category_id,
             'supplier_id' => $request->supplier_id,
             'product_code' => $request->product_code,
-            'product_garage' => $request->product_garage,
+            'product_garage' => $pcode,
             'product_store' => $request->product_store,
             'buying_date' => $request->buying_date,
             'expire_date' => $request->expire_date,
@@ -51,6 +56,7 @@ class ProductController extends Controller
             'created_at' => Carbon::now(),
 
         ]);
+        // this $pcode could be used to auto gen an sku number?
 
         $notification = array(
             'message' => 'Product Inserted Successfully',
@@ -151,9 +157,36 @@ class ProductController extends Controller
     }
     // End Method
 
+    public function BarcodeProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('backend.product.barcode_product', compact('product'));
+    }
+    // End Method
 
+    public function ImportProduct()
+    {
+        return view('backend.product.import_product');
+    }
+    // End Method
 
+    public function Export()
+    {
+        return Excel::download(new ProductExport, 'products.xlsx');
+    }
+    // End Method
 
+    public function Import(Request $request)
+    {
+        Excel::import(new ProductImport, $request->file('import_file'));
+
+        $notification = array(
+            'message' => 'Product Imported Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    // End Method
 
 
 }
